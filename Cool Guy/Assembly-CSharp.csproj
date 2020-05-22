@@ -63,7 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-     <Compile Include="Assets\Scripts\Elevator.cs" />
+     <Compile Include="Assets\Scripts\Elevator_script.cs" />
      <Compile Include="Assets\Scripts\RandomRoomGenerator.cs" />
      <Compile Include="Assets\Scripts\WASD_Character_Controller.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
