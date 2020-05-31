@@ -4,36 +4,50 @@ using UnityEngine;
 
 public class WASD_Character_Controller : MonoBehaviour
 {
-    public float PlayerSpeed;                                             //stores player speed float;
+    public Rigidbody Player_RB;
 
-    private bool CanMove;                                                 //stores bool for if the player can move;
+    public float PlayerSpeed;                                             //stores player speed float;
+    public float MaxSpeed;
+
+    public bool CanMove;                                                 //stores bool for if the player can move;
 
     void Start()
     {
         CanMove = true;                                                   //sets CanMove to true
+        Player_RB = GetComponent<Rigidbody>();
+        MaxSpeed = 50.0f;
     }
 
     void Movement()
     {
+
+        // rigidbody.velocity = Vector3.up * speed;
         if (Input.GetKey("w"))                                            //if input is "w" key
         {
-            transform.Translate(0, 0, PlayerSpeed * Time.deltaTime);      //move up on the y axis
+            Player_RB.velocity = Vector3.forward * PlayerSpeed;     //move up on the y axis
         }
 
-        if (Input.GetKey("s"))                                            //if input is "s" key
+        else if (Input.GetKey("s"))                                            //if input is "s" key
         {
-            transform.Translate(0, 0, -PlayerSpeed * Time.deltaTime);     //move down on the y axis
+            Player_RB.velocity = -Vector3.forward * PlayerSpeed;     //move down on the y axis
         }
 
-        if (Input.GetKey("a"))                                            //if input is "s" key
+        else if (Input.GetKey("a"))                                            //if input is "s" key
         {
-            transform.Translate(-PlayerSpeed * Time.deltaTime, 0, 0);     //move left on the z axis
+            Player_RB.velocity = -Vector3.right * PlayerSpeed;    //move left on the z axis
         }
 
-        if (Input.GetKey("d"))                                            //if input is "s" key
+        else if (Input.GetKey("d"))                                            //if input is "s" key
         {
-            transform.Translate(PlayerSpeed * Time.deltaTime, 0, 0);      //move right on the z axis
+            Player_RB.velocity = Vector3.right * PlayerSpeed;      //move right on the z axis
         }
+
+        else
+        {
+            Player_RB.velocity = new Vector3(0, 0, 0);
+        }
+
+        //Player_RB.velocity = Vector3.ClampMagnitude(Player_RB.velocity, MaxSpeed);
     }
 
     void Update()
