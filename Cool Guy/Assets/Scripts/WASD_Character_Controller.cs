@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Security.Cryptography;
 using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WASD_Character_Controller : MonoBehaviour
 {
@@ -10,12 +13,19 @@ public class WASD_Character_Controller : MonoBehaviour
 
     public float PlayerSpeed;                                             //stores player speed float;
     public float MaxSpeed;
-    public bool CanMove;                                                 //stores bool for if the player can move;
+    public bool CanMove;
+
+    bool firing;
+    public GameObject bullet;
+    private Camera cam;
+    public float ROF;
+    public GameObject spawnLoc;//stores bool for if the player can move;
     void Start()
     {
         CanMove = true;                                                   //sets CanMove to true
         Player_RB = GetComponent<Rigidbody>();
         MaxSpeed = 50.0f;
+        cam = Camera.main;
     }
 
     void Movement()
@@ -54,6 +64,23 @@ public class WASD_Character_Controller : MonoBehaviour
         if (CanMove == true)    //if bool "Canmove" is true
         {
             Movement();         //runs "Movement" functions
+            var dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, -Vector3.up);
+            if (Input.GetMouseButton(0))
+                StartCoroutine("Fire");
+        }
+        
+    }
+
+    IEnumerator Fire()
+    {
+        if (!firing)
+        {
+            firing = true;
+            Instantiate(bullet, spawnLoc.transform.position, transform.rotation);
+            yield return new WaitForSeconds(ROF);
+            firing = false;
         }
     }
 }
