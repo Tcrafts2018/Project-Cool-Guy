@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class WASD_Character_Controller : MonoBehaviour
@@ -8,9 +10,7 @@ public class WASD_Character_Controller : MonoBehaviour
 
     public float PlayerSpeed;                                             //stores player speed float;
     public float MaxSpeed;
-
     public bool CanMove;                                                 //stores bool for if the player can move;
-
     void Start()
     {
         CanMove = true;                                                   //sets CanMove to true
@@ -20,32 +20,31 @@ public class WASD_Character_Controller : MonoBehaviour
 
     void Movement()
     {
-
+        var direction = new Vector3(0, 0, 0);
         // rigidbody.velocity = Vector3.up * speed;
         if (Input.GetKey("w"))                                            //if input is "w" key
         {
-            Player_RB.velocity = Vector3.forward * PlayerSpeed;     //move up on the y axis
+            direction += Vector3.forward;   //move up on the y axis
         }
 
-        else if (Input.GetKey("s"))                                            //if input is "s" key
+        if (Input.GetKey("s"))                                            //if input is "s" key
         {
-            Player_RB.velocity = -Vector3.forward * PlayerSpeed;     //move down on the y axis
+            direction += -Vector3.forward;   //move down on the y axis
         }
 
-        else if (Input.GetKey("a"))                                            //if input is "s" key
+        if (Input.GetKey("a"))                                            //if input is "s" key
         {
-            Player_RB.velocity = -Vector3.right * PlayerSpeed;    //move left on the z axis
+            direction += -Vector3.right;    //move left on the z axis
         }
 
-        else if (Input.GetKey("d"))                                            //if input is "s" key
+        if (Input.GetKey("d"))                                            //if input is "s" key
         {
-            Player_RB.velocity = Vector3.right * PlayerSpeed;      //move right on the z axis
+            direction += Vector3.right;     //move right on the z axis
         }
 
-        else
-        {
-            Player_RB.velocity = new Vector3(0, 0, 0);
-        }
+        
+
+        Player_RB.velocity = direction * PlayerSpeed;
 
         //Player_RB.velocity = Vector3.ClampMagnitude(Player_RB.velocity, MaxSpeed);
     }
