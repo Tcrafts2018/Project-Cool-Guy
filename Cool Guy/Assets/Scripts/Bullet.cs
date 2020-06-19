@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Dynamic;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
             collision.gameObject.SendMessage("Hit");
-
+        Destroy(gameObject);
         
     }
 }
