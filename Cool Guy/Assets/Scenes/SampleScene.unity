@@ -1201,9 +1201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b2b7cd144f0844a8dc65f17458460e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room1: {fileID: 1058493446455327606, guid: a540ec8751a05e5459d6ee634c26dc4b, type: 3}
-  room2: {fileID: 201820580690237197, guid: 1df8e978e918c05429fc34d5a27b7b54, type: 3}
-  room3: {fileID: 6630430112659386973, guid: de4e6caeb7f9f014088b22c53383d1a6, type: 3}
+  room1: {fileID: 5625996753173507131, guid: 082ec538473e3ca4583fea9dd1456e6c, type: 3}
+  room2: {fileID: 2313972121317527168, guid: bf873f2baee239e42a9729e8ed854bc1, type: 3}
+  room3: {fileID: 3162736127256356596, guid: 668be94a611220e47852b6128a4a81b2, type: 3}
   spawnLoc: {fileID: 1624846957}
 --- !u!1 &1624846957
 GameObject:
