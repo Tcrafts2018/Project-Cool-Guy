@@ -6,11 +6,11 @@ public class RandomRoomGenerator : MonoBehaviour
 {
 
     public GameObject room1;
-    private BoxCollider room1Collider;
+    private MeshRenderer room1Collider;
     public GameObject room2;
-    private BoxCollider room2Collider;
+    private MeshRenderer room2Collider;
     public GameObject room3;
-    private BoxCollider room3Collider;
+    private MeshRenderer room3Collider;
     public GameObject spawnLoc;
     void Start()
     {
@@ -34,19 +34,19 @@ public class RandomRoomGenerator : MonoBehaviour
         {
             case 1:
                 Instantiate(room1, spawnLoc.transform.position, spawnLoc.transform.rotation);
-                room1Collider = room1.GetComponent<BoxCollider>();
+                room1Collider = room1.GetComponent<MeshRenderer>();
                 spawnLoc.transform.position = new Vector3(spawnLoc.transform.position.x, spawnLoc.transform.position.y + room1Collider.bounds.size.y, spawnLoc.transform.position.z);
                 Debug.Log(room1Collider.bounds.size.y);
                 break;
             case 2:
                 Instantiate(room2, spawnLoc.transform.position, spawnLoc.transform.rotation);
-                room2Collider = room2.GetComponent<BoxCollider>();
+                room2Collider = room2.GetComponent<MeshRenderer>();
                 spawnLoc.transform.position = new Vector3(spawnLoc.transform.position.x, spawnLoc.transform.position.y + room2Collider.bounds.size.y, spawnLoc.transform.position.z);
                 Debug.Log(room2Collider.bounds.size.y);
                 break;
             case 3:
                 Instantiate(room3, spawnLoc.transform.position, spawnLoc.transform.rotation);
-                room3Collider = room3.GetComponent<BoxCollider>();
+                room3Collider = room3.GetComponent<MeshRenderer>();
                 spawnLoc.transform.position = new Vector3(spawnLoc.transform.position.x, spawnLoc.transform.position.y + room3Collider.bounds.size.y, spawnLoc.transform.position.z);
                 Debug.Log(room3Collider.bounds.size.y);
                 break;
