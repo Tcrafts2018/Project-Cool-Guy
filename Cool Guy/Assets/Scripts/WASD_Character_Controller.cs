@@ -16,17 +16,12 @@ public class WASD_Character_Controller : MonoBehaviour
     public bool CanMove;
 
     bool firing;
-    private GameObject bullet;
-    private GameObject levelController;
-    HotbarButtonScript hotbarbuttonScript;
+    public GameObject bullet;
     private Camera cam;
     public float ROF;
     public GameObject spawnLoc;//stores bool for if the player can move;
     void Start()
     {
-        levelController = GameObject.Find("LevelController");
-        hotbarbuttonScript = levelController.GetComponent<HotbarButtonScript>();
-        bullet = hotbarbuttonScript.coolBullet;
         CanMove = true;                                                   //sets CanMove to true
         Player_RB = GetComponent<Rigidbody>();
         MaxSpeed = 50.0f;
@@ -75,9 +70,7 @@ public class WASD_Character_Controller : MonoBehaviour
             if (Input.GetMouseButton(0))
                 StartCoroutine("Fire");
         }
-
-        bullet = hotbarbuttonScript.coolBullet;
-
+        
     }
 
     IEnumerator Fire()
