@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Elevator_script.cs" />
+    <Compile Include="Assets\Scripts\HotbarButtonScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RandomRoomGenerator.cs" />
     <Compile Include="Assets\Scripts\TestingRoomHeights.cs" />
