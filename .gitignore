@@ -67,3 +67,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Cool Guy/Library/ArtifactDB
+Cool Guy/Library/shadercompiler-UnityShaderCompiler.exe0.log
+Cool Guy/Library/SourceAssetDB
+Cool Guy/Library/SourceAssetDB-lock
+Cool Guy/Temp/UnityLockfile
